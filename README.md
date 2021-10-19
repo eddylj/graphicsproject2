@@ -56,7 +56,7 @@ This project should look very similar to the projects you've been using in your 
 
 3d. (5%) Multiple Lights. In 3a-c, you are required to have at least 1 directional light and one point light. This component involves making multiple lights of different types and using them in the scene. Each light should be obviously a different colour/location/direction so it is clear the different effects they're having on the scene. There must be a minimum of 2 of each of directional and point lights to score marks in this section.
 
-3e. (10%) Maps. Your application can implement different maps on one object. The most obvious examples would be a specular map that makes only part of an object "shiny" or a bump map that gives a surface visible "roughness".
+3e. (10%) Maps. Your application can implement different maps on one object. The most obvious examples would be a specular map that makes only part of an object "shiny" or a normal/bump map that gives a surface visible "roughness".
 
 **For 1, 2 and 3, If you are able to create code that can be seen to be implementing the criteria, but cannot be proven through visible evidence in the application window, you can receive a maximum of half of the available marks for those criteria.**
 
