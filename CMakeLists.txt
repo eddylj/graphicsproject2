@@ -32,10 +32,22 @@ target_sources(${ACTIVITY}
         ${target}
         PRIVATE
         include/ass2/memes.hpp
+        include/ass2/camera.hpp
+        include/ass2/light.hpp
+        include/ass2/primitives.hpp
+        include/ass2/renderer.hpp
+        include/ass2/scene.hpp
+        include/ass2/animator.hpp
 
         src/memes.cpp
 
         src/main.cpp
+        src/camera.cpp
+        src/light.cpp
+        src/primitives.cpp
+        src/renderer.cpp
+        src/scene.cpp
+        src/animator.cpp
         )
 target_link_libraries(${ACTIVITY} PUBLIC ${COMMON_LIBS})
 target_compile_options(

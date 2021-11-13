@@ -1,14 +1,25 @@
-#include <thread>
+#include <cstdlib>
 #include <chrono>
+#include <thread>
+#include <iostream>
+#include <stack>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <glm/ext.hpp>
 
 #include <chicken3421/chicken3421.hpp>
 
 #include <ass2/memes.hpp>
+#include <ass2/scene.hpp>
+#include <ass2/renderer.hpp>
+#include <ass2/animator.hpp>
+
+struct {
+    int WIDTH = 1280;
+    int HEIGHT = 720;
+    const char *TITLE = "Tutorial 08";
+    float ASPECT = (float) WIDTH / (float) HEIGHT;
+} win_opts;
 
 /**
  * Returns the difference in time between when this function was previously called and this call.
@@ -23,16 +34,20 @@ float time_delta();
 float time_now();
 
 int main() {
-    GLFWwindow *win = marcify(chicken3421::make_opengl_window(1280, 720, "Assignment 2"));
+    GLFWwindow *win = marcify(chicken3421::make_opengl_window(win_opts.WIDTH, win_opts.HEIGHT, win_opts.TITLE));
+    glfwSetInputMode(win, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-    // TODO - turn this on or off?
-//    glfwSetInputMode(win, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    scene_t scene = make_scene();
+    animator_t animator = make_animator();
+    renderer_t renderer = make_renderer(glm::perspective(glm::pi<float>() / 3, win_opts.ASPECT, 0.1f, 100.f));
 
     while (!glfwWindowShouldClose(win)) {
         float dt = time_delta();
 
-        glClear(GL_COLOR_BUFFER_BIT);
-        glClearColor(0.f, 0.f, 0.2f, 1.f);
+        update_camera(scene.cam, win, dt);
+        animate(animator, scene, time_now());
+
+        render(renderer, scene);
 
         glfwSwapBuffers(win);
         glfwPollEvents();
@@ -50,7 +65,6 @@ int main() {
     return EXIT_SUCCESS;
 }
 
-
 float time_delta() {
     static float then = time_now();
     float now = time_now();
@@ -60,5 +74,5 @@ float time_delta() {
 }
 
 float time_now() {
-    return (float)glfwGetTime();
+    return (float) glfwGetTime();
 }
