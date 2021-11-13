@@ -28,7 +28,7 @@ In part 2, a and b are complete while c is not. The default camera after loading
 
 ### 2b: Describe how your camera interacts with the scene. Is it able to "walk" on the Z-X plane or follow terrain? Include code references.
 
-To use the walk camera, press E after loading the application. This camera makes the camera unable to move on the y axis, meaning it will be stuck on the y coordinate of the camera whenever E was pressed, creating a 'walking' feeling. The code for this camera is from lines 77 to 96 in camera.cpp.
+To use the walk camera, press E after loading the application. This camera makes the camera unable to move on the y axis, meaning it will be stuck on the y coordinate of the camera whenever E was pressed, creating a 'walking' feeling. The code for this camera is from lines 77 to 96 in camera.cpp. To go back to the fly camera press F.
 
 ### 2c: Describe how the view of your scene can change from player controlled to application controlled (specify user input that makes this change happen). Include code references to use of parametric curves and delta time in the application controlled camera.
 
